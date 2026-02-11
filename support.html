@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support &mdash; Butter</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #FAF6F0;
+            color: #2D2A28;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            color: #DFAA3A;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+        .back-link:hover { text-decoration: underline; }
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            font-size: 16px;
+            color: #6B6560;
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #E8E2DA;
+        }
+        p { margin-bottom: 16px; font-size: 15px; }
+        ul, ol {
+            margin-bottom: 16px;
+            padding-left: 24px;
+            font-size: 15px;
+        }
+        li { margin-bottom: 8px; }
+        a { color: #DFAA3A; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .contact-card {
+            background: #FFFFFF;
+            border: 1px solid #E8E2DA;
+            border-radius: 14px;
+            padding: 28px;
+            margin: 24px 0;
+            text-align: center;
+        }
+        .contact-card .icon {
+            width: 56px;
+            height: 56px;
+            background: #FDF5E6;
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        .contact-card .icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: #DFAA3A;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .contact-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .contact-card p {
+            font-size: 14px;
+            color: #6B6560;
+            margin-bottom: 16px;
+        }
+        .contact-card a.email-btn {
+            display: inline-block;
+            background: #DFAA3A;
+            color: #FFFFFF;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .contact-card a.email-btn:hover {
+            background: #C9962E;
+            text-decoration: none;
+        }
+        .faq-item {
+            background: #FFFFFF;
+            border: 1px solid #E8E2DA;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 18px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #2D2A28;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: inherit;
+        }
+        .faq-question:hover {
+            background: #FDFBF8;
+        }
+        .faq-arrow {
+            font-size: 18px;
+            color: #DFAA3A;
+            transition: transform 0.2s;
+            flex-shrink: 0;
+            margin-left: 12px;
+        }
+        .faq-item.open .faq-arrow {
+            transform: rotate(90deg);
+        }
+        .faq-answer {
+            display: none;
+            padding: 0 20px 18px;
+            font-size: 14px;
+            color: #6B6560;
+            line-height: 1.6;
+        }
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+        .faq-answer ol {
+            font-size: 14px;
+            color: #6B6560;
+        }
+        .faq-answer p {
+            font-size: 14px;
+            color: #6B6560;
+        }
+        .highlight-box {
+            background: #FFFFFF;
+            border: 1px solid #E8E2DA;
+            border-left: 3px solid #DFAA3A;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .sys-req {
+            background: #FFFFFF;
+            border: 1px solid #E8E2DA;
+            border-radius: 12px;
+            padding: 20px 24px;
+        }
+        .sys-req-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #F0ECE6;
+        }
+        .sys-req-item:last-child {
+            border-bottom: none;
+        }
+        .sys-req-item .label {
+            color: #6B6560;
+        }
+        .sys-req-item .value {
+            font-weight: 600;
+        }
+        footer {
+            text-align: center;
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid #E8E2DA;
+            font-size: 13px;
+            color: #8A8480;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Legal</a>
+
+        <h1>Support</h1>
+        <p class="subtitle">Need help with Butter? We're here for you.</p>
+
+        <div class="contact-card">
+            <div class="icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <h3>Email Support</h3>
+            <p>We typically respond within 24&ndash;48 hours.</p>
+            <a href="mailto:karoljaworsky@gmail.com" class="email-btn">karoljaworsky@gmail.com</a>
+        </div>
+
+        <div class="highlight-box">
+            When contacting support, please include your device model, iOS version, and a description of the issue. Screenshots are always helpful.
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item open">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                How do I cancel my Butter+ subscription?
+                <span class="faq-arrow">&rsaquo;</span>
+            </button>
+            <div class="faq-answer">
+                <p>You can cancel your subscription through your Apple ID settings:</p>
+                <ol>
+                    <li>Open <strong>Settings</strong> on your iPhone or iPad.</li>
+                    <li>Tap your <strong>name</strong> (Apple ID) at the top of the screen.</li>
+                    <li>Tap <strong>Subscriptions</strong>.</li>
+                    <li>Find and tap <strong>Butter+</strong>.</li>
+                    <li>Tap <strong>Cancel Subscription</strong> and confirm.</li>
+                </ol>
+                <p>Your Butter+ features will remain active until the end of your current billing period. Please note that deleting the app does not cancel your subscription.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                How do I restore my purchases on a new device?
+                <span class="faq-arrow">&rsaquo;</span>
+            </button>
+            <div class="faq-answer">
+                <p>If you have reinstalled Butter or switched to a new device, your subscription should restore automatically when you sign in with the same Apple ID. If it does not:</p>
+                <ol>
+                    <li>Open Butter and navigate to <strong>Settings</strong> (profile tab).</li>
+                    <li>Tap <strong>Restore Purchases</strong>.</li>
+                    <li>Make sure you are signed in with the Apple ID used for the original purchase.</li>
+                </ol>
+                <p>If the issue persists, please contact us at <a href="mailto:karoljaworsky@gmail.com">karoljaworsky@gmail.com</a>.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                How do I change my dietary preferences?
+                <span class="faq-arrow">&rsaquo;</span>
+            </button>
+            <div class="faq-answer">
+                <p>You can update your dietary preferences at any time:</p>
+                <ol>
+                    <li>Open Butter and go to the <strong>Profile</strong> tab.</li>
+                    <li>Tap <strong>Settings</strong>.</li>
+                    <li>Under <strong>Preferences</strong>, you can update your dietary restrictions, ingredient dislikes, skill level, kitchen equipment, and serving size.</li>
+                </ol>
+                <p>Changes take effect immediately and will be reflected in your next recipe generation.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                My AI recipe is not loading. What should I do?
+                <span class="faq-arrow">&rsaquo;</span>
+            </button>
+            <div class="faq-answer">
+                <p>If a recipe fails to generate, try the following steps:</p>
+                <ol>
+                    <li><strong>Check your internet connection.</strong> Recipe generation requires an active internet connection since it uses cloud-based AI.</li>
+                    <li><strong>Try again.</strong> Temporary server issues can occasionally cause failures. Wait a moment and try generating the recipe again.</li>
+                    <li><strong>Restart the app.</strong> Close Butter completely and reopen it.</li>
+                    <li><strong>Check your weekly limit.</strong> Free-tier users are limited to 5 recipes per week. If you have reached your limit, you can wait for the weekly reset or upgrade to Butter+.</li>
+                    <li><strong>Update the app.</strong> Make sure you are running the latest version of Butter from the App Store.</li>
+                </ol>
+                <p>If none of these steps resolve the issue, please contact us with details about the error you are seeing.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                The app is not working properly. What can I try?
+                <span class="faq-arrow">&rsaquo;</span>
+            </button>
+            <div class="faq-answer">
+                <p>If you are experiencing general issues with Butter, try these troubleshooting steps:</p>
+                <ol>
+                    <li><strong>Force-close and reopen</strong> the app.</li>
+                    <li><strong>Restart your device.</strong></li>
+                    <li><strong>Update Butter</strong> to the latest version from the App Store.</li>
+                    <li><strong>Update iOS</strong> to the latest version (Settings &gt; General &gt; Software Update).</li>
+                    <li><strong>Check available storage.</strong> Butter needs sufficient storage for local data. Go to Settings &gt; General &gt; iPhone Storage to check.</li>
+                    <li><strong>Reinstall the app.</strong> Delete and reinstall Butter from the App Store. Your subscription and account data will be preserved; local recipe history may need to be re-synced if you have an account.</li>
+                </ol>
+                <p>If the problem continues after trying all of the above, please reach out to us at <a href="mailto:karoljaworsky@gmail.com">karoljaworsky@gmail.com</a> with a description of the issue, your device model, and iOS version.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                How do I delete my account and data?
+                <span class="faq-arrow">&rsaquo;</span>
+            </button>
+            <div class="faq-answer">
+                <p>If you wish to delete your account and all associated data:</p>
+                <ol>
+                    <li>Open Butter and go to the <strong>Profile</strong> tab.</li>
+                    <li>Tap <strong>Settings</strong>.</li>
+                    <li>Scroll down and tap <strong>Delete Account</strong>.</li>
+                    <li>Confirm the deletion.</li>
+                </ol>
+                <p>This will remove your account and server-side data. Local data on your device will be cleared when you delete the app. If you have an active subscription, please cancel it separately through your Apple ID settings before deleting your account.</p>
+                <p>You can also request account deletion by emailing <a href="mailto:karoljaworsky@gmail.com">karoljaworsky@gmail.com</a>.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                How do I request a refund?
+                <span class="faq-arrow">&rsaquo;</span>
+            </button>
+            <div class="faq-answer">
+                <p>Since all payments are processed through Apple, refund requests must be submitted directly to Apple:</p>
+                <ol>
+                    <li>Visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>.</li>
+                    <li>Sign in with your Apple ID.</li>
+                    <li>Find the Butter+ charge in your purchase history.</li>
+                    <li>Select <strong>Request a Refund</strong> and follow the instructions.</li>
+                </ol>
+                <p>Refund eligibility and approval are at Apple's sole discretion.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Can I use Butter without creating an account?
+                <span class="faq-arrow">&rsaquo;</span>
+            </button>
+            <div class="faq-answer">
+                <p>Yes. Butter works fully without an account. You can generate recipes, manage your pantry, and track your cooking history without signing in. Creating an account (via Apple Sign-In or Google Sign-In) is optional and is only needed if you want to sync data across multiple devices or back up your data to the cloud.</p>
+            </div>
+        </div>
+
+        <h2>System Requirements</h2>
+        <div class="sys-req">
+            <div class="sys-req-item">
+                <span class="label">Platform</span>
+                <span class="value">iPhone &amp; iPad</span>
+            </div>
+            <div class="sys-req-item">
+                <span class="label">Minimum iOS Version</span>
+                <span class="value">iOS 17.0 or later</span>
+            </div>
+            <div class="sys-req-item">
+                <span class="label">Internet Connection</span>
+                <span class="value">Required for recipe generation</span>
+            </div>
+            <div class="sys-req-item">
+                <span class="label">Storage</span>
+                <span class="value">Approximately 50 MB</span>
+            </div>
+            <div class="sys-req-item">
+                <span class="label">Languages</span>
+                <span class="value">English</span>
+            </div>
+        </div>
+
+        <h2>Additional Resources</h2>
+        <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="subscription-terms.html">Subscription Terms</a></li>
+            <li><a href="eula.html">End User License Agreement</a></li>
+            <li><a href="copyright.html">Copyright Notice</a></li>
+        </ul>
+
+        <footer>
+            <p>&copy; 2026 Karol Jaworski. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleFaq(button) {
+            var item = button.parentElement;
+            var allItems = document.querySelectorAll('.faq-item');
+            allItems.forEach(function(el) {
+                if (el !== item) {
+                    el.classList.remove('open');
+                }
+            });
+            item.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

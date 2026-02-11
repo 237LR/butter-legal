@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Terms &mdash; Butter</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #FAF6F0;
+            color: #2D2A28;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            color: #DFAA3A;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+        .back-link:hover { text-decoration: underline; }
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .effective-date {
+            font-size: 14px;
+            color: #8A8480;
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #E8E2DA;
+        }
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+        p { margin-bottom: 16px; font-size: 15px; }
+        ul, ol {
+            margin-bottom: 16px;
+            padding-left: 24px;
+            font-size: 15px;
+        }
+        li { margin-bottom: 8px; }
+        a { color: #DFAA3A; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .highlight-box {
+            background: #FFFFFF;
+            border: 1px solid #E8E2DA;
+            border-left: 3px solid #DFAA3A;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .plan-cards {
+            display: grid;
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .plan-card {
+            background: #FFFFFF;
+            border: 1px solid #E8E2DA;
+            border-radius: 14px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .plan-card.featured {
+            border-color: #DFAA3A;
+            box-shadow: 0 2px 16px rgba(223, 170, 58, 0.15);
+        }
+        .plan-card.featured::before {
+            content: "Best Value";
+            position: absolute;
+            top: 12px;
+            right: -28px;
+            background: #DFAA3A;
+            color: #FFFFFF;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 36px;
+            transform: rotate(45deg);
+        }
+        .plan-name {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .plan-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: #DFAA3A;
+            margin-bottom: 2px;
+        }
+        .plan-price span {
+            font-size: 14px;
+            font-weight: 400;
+            color: #8A8480;
+        }
+        .plan-note {
+            font-size: 13px;
+            color: #8A8480;
+            margin-bottom: 12px;
+        }
+        .plan-features {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .plan-features li {
+            font-size: 14px;
+            padding: 4px 0;
+            padding-left: 22px;
+            position: relative;
+        }
+        .plan-features li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            color: #DFAA3A;
+            font-weight: 700;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .comparison-table th,
+        .comparison-table td {
+            text-align: left;
+            padding: 12px 14px;
+            border-bottom: 1px solid #E8E2DA;
+        }
+        .comparison-table th {
+            background: #FDF5E6;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #6B6560;
+        }
+        .comparison-table td:nth-child(2),
+        .comparison-table td:nth-child(3),
+        .comparison-table th:nth-child(2),
+        .comparison-table th:nth-child(3) {
+            text-align: center;
+        }
+        .check { color: #DFAA3A; font-weight: 700; }
+        .dash { color: #C5BFB8; }
+        .steps {
+            counter-reset: steps;
+            list-style: none;
+            padding-left: 0;
+        }
+        .steps li {
+            counter-increment: steps;
+            padding-left: 36px;
+            position: relative;
+            margin-bottom: 12px;
+        }
+        .steps li::before {
+            content: counter(steps);
+            position: absolute;
+            left: 0;
+            width: 24px;
+            height: 24px;
+            background: #DFAA3A;
+            color: #FFFFFF;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        footer {
+            text-align: center;
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid #E8E2DA;
+            font-size: 13px;
+            color: #8A8480;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Legal</a>
+
+        <h1>Subscription Terms</h1>
+        <p class="effective-date">Effective Date: February 7, 2026</p>
+
+        <p>This document outlines the subscription plans, pricing, billing, and cancellation policies for Butter+ premium subscriptions. By subscribing to Butter+, you agree to these terms in addition to our <a href="terms-of-service.html">Terms of Service</a>.</p>
+
+        <h2>1. Available Plans</h2>
+
+        <div class="plan-cards">
+            <div class="plan-card">
+                <div class="plan-name">Free</div>
+                <div class="plan-price">$0 <span>forever</span></div>
+                <div class="plan-note">No credit card required</div>
+                <ul class="plan-features">
+                    <li>Up to 5 AI-generated recipes per week</li>
+                    <li>Basic ingredient selection</li>
+                    <li>Dietary preference management</li>
+                    <li>Local recipe storage</li>
+                </ul>
+            </div>
+
+            <div class="plan-card">
+                <div class="plan-name">Butter+ Monthly</div>
+                <div class="plan-price">$4.99 <span>/month</span></div>
+                <div class="plan-note">Billed monthly, cancel anytime</div>
+                <ul class="plan-features">
+                    <li>Unlimited AI-generated recipes</li>
+                    <li>Full meal planning</li>
+                    <li>Cooking analytics and insights</li>
+                    <li>Advanced ingredient management</li>
+                    <li>Priority recipe generation</li>
+                </ul>
+            </div>
+
+            <div class="plan-card featured">
+                <div class="plan-name">Butter+ Yearly</div>
+                <div class="plan-price">$39.99 <span>/year</span></div>
+                <div class="plan-note">Save 33% compared to monthly ($3.33/month)</div>
+                <ul class="plan-features">
+                    <li>Everything in Butter+ Monthly</li>
+                    <li>Best long-term value</li>
+                    <li>Billed annually</li>
+                </ul>
+            </div>
+
+            <div class="plan-card">
+                <div class="plan-name">Butter+ Yearly Promo</div>
+                <div class="plan-price">$19.99 <span>first year</span></div>
+                <div class="plan-note">Then $39.99/year &mdash; save 50% the first year</div>
+                <ul class="plan-features">
+                    <li>Everything in Butter+ Monthly</li>
+                    <li>Special introductory price</li>
+                    <li>Renews at $39.99/year after first year</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>2. Feature Comparison</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Free</th>
+                    <th>Butter+</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>AI-generated recipes</td>
+                    <td>5/week</td>
+                    <td class="check">Unlimited</td>
+                </tr>
+                <tr>
+                    <td>Dietary preferences</td>
+                    <td class="check">&#10003;</td>
+                    <td class="check">&#10003;</td>
+                </tr>
+                <tr>
+                    <td>Ingredient selection</td>
+                    <td class="check">&#10003;</td>
+                    <td class="check">&#10003;</td>
+                </tr>
+                <tr>
+                    <td>Local recipe storage</td>
+                    <td class="check">&#10003;</td>
+                    <td class="check">&#10003;</td>
+                </tr>
+                <tr>
+                    <td>Full meal planning</td>
+                    <td class="dash">&mdash;</td>
+                    <td class="check">&#10003;</td>
+                </tr>
+                <tr>
+                    <td>Cooking analytics</td>
+                    <td class="dash">&mdash;</td>
+                    <td class="check">&#10003;</td>
+                </tr>
+                <tr>
+                    <td>Advanced pantry management</td>
+                    <td class="dash">&mdash;</td>
+                    <td class="check">&#10003;</td>
+                </tr>
+                <tr>
+                    <td>Priority recipe generation</td>
+                    <td class="dash">&mdash;</td>
+                    <td class="check">&#10003;</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>3. Billing</h2>
+        <ul>
+            <li>All subscriptions are billed through Apple's App Store and processed via your Apple ID.</li>
+            <li>Payment is charged to your Apple ID account at confirmation of purchase.</li>
+            <li>Prices are displayed in your local currency. Prices in currencies other than USD may vary due to exchange rates and local taxes.</li>
+            <li>We do not collect, store, or have access to your payment information.</li>
+        </ul>
+
+        <h2>4. Auto-Renewal</h2>
+
+        <div class="highlight-box">
+            <strong>All Butter+ subscriptions automatically renew</strong> unless you cancel at least 24 hours before the end of the current billing period. Your Apple ID account will be charged for renewal within 24 hours prior to the end of the current period at the rate of your selected plan.
+        </div>
+
+        <ul>
+            <li><strong>Monthly plans</strong> renew every month on the same date you originally subscribed.</li>
+            <li><strong>Yearly plans</strong> renew every 12 months on the same date you originally subscribed.</li>
+            <li><strong>Promotional plans</strong> (Butter+ Yearly Promo) renew at the standard yearly rate of $39.99/year after the promotional period ends.</li>
+        </ul>
+
+        <h2>5. How to Cancel</h2>
+        <p>You can cancel your subscription at any time. Cancellation takes effect at the end of your current billing period &mdash; you will continue to have access to Butter+ features until then.</p>
+
+        <p>To cancel your subscription:</p>
+        <ol class="steps">
+            <li>Open <strong>Settings</strong> on your iPhone or iPad.</li>
+            <li>Tap your <strong>name</strong> (Apple ID) at the top.</li>
+            <li>Tap <strong>Subscriptions</strong>.</li>
+            <li>Find and tap <strong>Butter+</strong>.</li>
+            <li>Tap <strong>Cancel Subscription</strong> and confirm.</li>
+        </ol>
+
+        <p>Alternatively, you can manage subscriptions through the App Store app or at <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">apps.apple.com/account/subscriptions</a>.</p>
+
+        <div class="highlight-box">
+            <strong>Note:</strong> Deleting the Butter app does not cancel your subscription. You must cancel through your Apple ID settings to stop future charges.
+        </div>
+
+        <h2>6. Refunds</h2>
+        <p>Since all purchases are processed through Apple, refund requests must be submitted directly to Apple. To request a refund:</p>
+        <ul>
+            <li>Visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a></li>
+            <li>Sign in with your Apple ID</li>
+            <li>Find the Butter+ charge and select "Request a refund"</li>
+        </ul>
+        <p>Refund eligibility and approval are at Apple's sole discretion, in accordance with Apple's refund policies. We are unable to process refunds directly.</p>
+
+        <h2>7. Free Trial</h2>
+        <p>From time to time, we may offer free trial periods for Butter+ subscriptions. If a free trial is offered:</p>
+        <ul>
+            <li>The trial period and its duration will be clearly stated before you subscribe.</li>
+            <li>You will not be charged during the trial period.</li>
+            <li>At the end of the trial, your subscription will automatically convert to a paid subscription unless cancelled at least 24 hours before the trial ends.</li>
+            <li>Any unused portion of a free trial will be forfeited when you purchase a subscription.</li>
+        </ul>
+
+        <h2>8. Changes to Pricing</h2>
+        <p>We reserve the right to change subscription pricing at any time. If we change pricing:</p>
+        <ul>
+            <li>Existing subscribers will be notified in advance of any price changes.</li>
+            <li>Price changes will take effect at the start of your next billing period after the change.</li>
+            <li>Apple may notify you of price changes and require you to agree to the new price before your subscription renews.</li>
+            <li>If you do not agree to a price change, you may cancel your subscription before the new price takes effect.</li>
+        </ul>
+
+        <h2>9. Downgrading</h2>
+        <p>If you cancel your Butter+ subscription or it expires, your account will revert to the free tier at the end of the current billing period. You will retain access to recipes previously generated, but new recipe generation will be limited to 5 per week, and premium features (meal planning, cooking analytics) will no longer be available.</p>
+
+        <h2>10. Contact</h2>
+        <p>For questions about subscriptions or billing, please contact:</p>
+        <ul>
+            <li><strong>Email:</strong> <a href="mailto:karoljaworsky@gmail.com">karoljaworsky@gmail.com</a></li>
+            <li><strong>Developer:</strong> Karol Jaworski</li>
+        </ul>
+
+        <footer>
+            <p>&copy; 2026 Karol Jaworski. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
